@@ -7,7 +7,7 @@ module.exports = function(app){
         res.render("register", {
         }); 
     }); 
- 
+
 
     // Handling user signup 
     app.post("/register", function (req, res) { 

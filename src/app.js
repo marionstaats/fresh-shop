@@ -36,13 +36,6 @@ let app = express();
 app.use(express.urlencoded({extended: true}));  //to support URL-encoded bodies
 app.use(express.json());       // to support JSON-encoded bodies 
 
-//Set session
-app.use(session({
-    secret: 'rollo the fat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {}
-}))
 
 //Setup static directory to serve
 app.use(express.static(publicDirectory));
@@ -50,14 +43,13 @@ app.use(express.static(publicDirectory));
 //View engine config
 app.set("view engine", "ejs");
 
-// Register logic / Passport
-
-app.use(require("express-session")({ 
-	secret: "Albert is not a dog", 
-	resave: false, 
-	saveUninitialized: false,
-	cookie: {}
-}));
+//Set session
+app.use(session({
+    secret: 'rollo the fat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {}
+}))
 
 //In production set 'cookies secure = true' 
 if (app.get('env') === 'production') {

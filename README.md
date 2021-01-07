@@ -18,15 +18,10 @@ Freshshop already owns the frontend part of the project. You must now implement 
 ### Features
 
 - Register & sign in/out
-
 - Client account
-
 - Research bar
-
 - Newsletter (only add the email address to the database)
-
 - The shopping cart must work (add / remove / calculate / order)
-
 
 ### Nice-to-have features
 
@@ -34,8 +29,6 @@ Freshshop already owns the frontend part of the project. You must now implement 
 - The shop filters are working (sidebar shop)
 - Wishlist
 - Contact Us
-
-### Screenshots
 
 ### Get this app locally
 

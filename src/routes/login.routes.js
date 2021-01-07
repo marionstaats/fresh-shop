@@ -5,13 +5,12 @@ module.exports = function(app) {
     //Showing login form 
     app.get("/login", function (req, res) {
         let numberOfItems = 0; 
-        res.render("login", {numberOfItems: numberOfItems
-        }); 
+        res.render("login", {numberOfItems: numberOfItems}); 
     }); 
 
     //Handling user login 
     app.post("/login", passport.authenticate("local", {
-        successRedirect: "/my-account",
+        successRedirect: "/shop",
         failureRedirect: "/login",
         failureFlash: true
     }), function (req, res) { 

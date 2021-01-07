@@ -1,7 +1,6 @@
-const addButton = document.getElementsById('carrots');
+const addButton = document.getElementById('carrots');
 
-addButton.addEventListener('click',(e) =>{
-    e.preventDefault();
+addButton.addEventListener('click',() =>{
 
     fetch('/add-to-cart', {
         method: 'POST', 
