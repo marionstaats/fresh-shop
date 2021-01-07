@@ -3,8 +3,8 @@ const Newsletter = require("../models/newsletter");
 
 const saveNewsletter = (app) => {
         app.post(`/`, async (req, res) => { 
-            const newsletter = new Newsletter({ //creating object of TodoTask class
-                email: req.body.Email //key=content; value=req.body.content ('content' is value of name-attribute in input in html)
+            const newsletter = new Newsletter({ 
+                email: req.body.Email 
             });
             try {
                 await newsletter.save(); //save the new object in db

@@ -26,6 +26,8 @@
                         <a href="/logout" style="color: white;">Logout</a>
                         <a href="/register" style="color: white;">Register here</a>
                         <a href="/login" style="color: white;">Login</a>
+                        <a href="/my-account" style="color: white;">My account</a>
+
 
 						<!-- <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
 							<option>Register Here</option>
@@ -110,8 +112,11 @@
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="side-menu">
 							<a href="#">
-								<i class="fa fa-shopping-bag"></i>
-								<span class="badge">3</span>
+                                <i class="fa fa-shopping-bag"></i>
+                                <%if (locals.numberOfItems) {%>
+								<span class="badge" id="cartBadge">
+                                    <%= numberOfItems %>
+                                    </span><%}%>
 								<p>My Cart</p>
 							</a>
 						</li>

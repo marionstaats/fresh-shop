@@ -16,7 +16,10 @@ const UserSchema = mongoose.Schema({
             street: String,
             zipcode: String,
             town: String
-        }
+        },
+        currentCart: [{itemName: String, itemPrice: Number}],
+        previousCart: [{itemName: String, itemPrice: Number}],
+        wishlist: [{itemName: String, itemPrice: Number}]
 
 });
 

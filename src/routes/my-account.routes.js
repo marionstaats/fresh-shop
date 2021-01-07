@@ -4,7 +4,10 @@ const saveNewsletter = require('./functions');
 
 module.exports = function(app) {
     app.get("/my-account", isLoggedIn, (req, res) => { 
-        res.render("my-account");
+        let numberOfItems = 0; 
+        res.render("my-account", {numberOfItems: numberOfItems
+        }); 
+
     });
 
 

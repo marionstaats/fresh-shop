@@ -29,10 +29,12 @@ module.exports = function(app){
         
         }), 
                 password, function (err, user) { 
+
             if (err) { 
                 res.render('register', { 
                     message: err.message
                 });
+
                 return;
             } 
 

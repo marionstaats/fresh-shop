@@ -1,4 +1,5 @@
 const express = require("express"); 
+const session = require('express-session')
 const mongoose = require("mongoose");
 const passport = require("passport");
 const path = require('path');
@@ -32,6 +33,16 @@ const publicDirectory = path.join(__dirname, '../views/public');
 
 //Initiate app
 let app = express();
+app.use(express.urlencoded({extended: true}));  //to support URL-encoded bodies
+app.use(express.json());       // to support JSON-encoded bodies 
+
+//Set session
+app.use(session({
+    secret: 'rollo the fat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {}
+}))
 
 //Setup static directory to serve
 app.use(express.static(publicDirectory));
@@ -39,12 +50,7 @@ app.use(express.static(publicDirectory));
 //View engine config
 app.set("view engine", "ejs");
 
-////////////////////////////////////////////////////////////////
 // Register logic / Passport
-////////////////////////////////////////////////////////////////
-
-app.use(bodyParser.urlencoded({ extended: true }));  //to support URL-encoded bodies
-app.use( bodyParser.json() );       // to support JSON-encoded bodies 
 
 app.use(require("express-session")({ 
 	secret: "Albert is not a dog", 
@@ -86,6 +92,9 @@ require('./routes/shop-detail.routes')(app);
 require('./routes/shop.routes')(app);
 require('./routes/wishlist.routes')(app);
 require('./routes/login.routes')(app);
+require('./routes/your-address.routes')(app);
+require('./routes/my-login.routes')(app);
+require('./routes/add-to-cart.routes')(app);
 
 
 //Connect port (local and heroku)
