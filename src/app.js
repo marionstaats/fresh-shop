@@ -86,8 +86,18 @@ require('./routes/wishlist.routes')(app);
 require('./routes/login.routes')(app);
 require('./routes/your-address.routes')(app);
 require('./routes/my-login.routes')(app);
-require('./routes/add-to-cart.routes')(app);
+require('./routes/finish-checkout.routes')(app);
 
+//api routes
+require('./routes/create-product-db.routes')(app);
+require('./routes/get-item-details.routes')(app);
+require('./routes/get-cart.routes')(app);
+require('./routes/add-to-cart.routes')(app);
+require('./routes/newsletter.routes')(app);
+
+
+//404 page
+require('./routes/404.routes')(app);
 
 //Connect port (local and heroku)
 if (port == null || port == "") {

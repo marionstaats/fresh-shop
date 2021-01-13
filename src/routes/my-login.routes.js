@@ -1,4 +1,3 @@
-const saveNewsletter = require('./functions');
 const User = require("../models/user");
 
 module.exports = function(app) {
@@ -23,7 +22,6 @@ module.exports = function(app) {
 
     }); 
     
-    saveNewsletter(app);
 
 }
 

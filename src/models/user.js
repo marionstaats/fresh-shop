@@ -5,7 +5,6 @@ const UserSchema = mongoose.Schema({
         username: String,
         fName: String,
         lName: String,
-        phonenumber: Number,
         email: String,
         password: String,
         dateSubcribed: {
@@ -17,7 +16,6 @@ const UserSchema = mongoose.Schema({
             zipcode: String,
             town: String
         },
-        currentCart: [{itemName: String, itemPrice: Number}],
         previousCart: [{itemName: String, itemPrice: Number}],
         wishlist: [{itemName: String, itemPrice: Number}]
 

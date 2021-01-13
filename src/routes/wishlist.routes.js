@@ -1,13 +1,9 @@
-const saveNewsletter = require('./functions');
-
 
 module.exports = function(app) {
     app.get("/wishlist", isLoggedIn, (req, res) => { 
         res.render("wishlist");
     });
 
-
-    saveNewsletter(app);
 
 }
 
