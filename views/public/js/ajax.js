@@ -180,6 +180,7 @@ if (document.URL === "http://localhost:3000/cart") {
             totalPrice = data.totalPrice;
             createVisualCart (itemArray,totalPrice);
             cartRemoveButton(itemArray);
+            cartIncrement(itemArray)
         })    
 
     function createVisualCart(itemArray,totalPrice){
@@ -204,9 +205,9 @@ if (document.URL === "http://localhost:3000/cart") {
             </a>
             </td>
             <td class="price-pr">
-                <p>$ ${(item.subTotal)/(item.itemAmount)}</p>
+                <p>$ ${((item.subTotal)/(item.itemAmount)).toFixed(2)}</p>
             </td>
-            <td class="quantity-box"><input type="number" size="4" value="${item.itemAmount}" min="0" step="1" class="c-input-text qty text"></td>
+            <td class="quantity-box"><input type="number" size="4" value="${item.itemAmount}" min="0" step="1" id="${item.itemName}" class="cartIncrement" c-input-text qty text"></td>
             <td class="total-pr">
                 <p>$ ${(item.subTotal).toFixed(2)}</p>
             </td>
@@ -222,6 +223,45 @@ if (document.URL === "http://localhost:3000/cart") {
         })
     }
 
+    //Increment item number
+    function cartIncrement(itemArray){
+        document.getElementById("updateCartButton").addEventListener("click", (e)=>{
+            e.preventDefault();
+
+            document.querySelectorAll(".cartIncrement").forEach(element=>{
+                //Find element and change amount and subtotal
+                let itemName = element.getAttribute('id');
+                let index = itemArray.findIndex(it => Object.values(it)[0] == itemName);
+                itemArray[index].subTotal = ((itemArray[index].subTotal)/(itemArray[index].itemAmount)) * Number(element.value);
+                itemArray[index].itemAmount = Number(element.value);
+            })
+
+            //Recalculate new total price
+            totalPrice = 0;
+            itemArray.forEach(item => {
+                totalPrice += item.subTotal;
+            });
+
+            //Recalculate new total amount
+            totalAmount = 0;
+            itemArray.forEach(item => {
+                totalAmount += item.itemAmount;
+            });
+
+            //Show new number of items in icon cart
+            document.getElementById("cartBadge").innerText = totalAmount;
+
+            //Remove all items from the cart (recreate after)
+            document.getElementById("cartItemBlock").innerHTML = "";
+
+            updateCartDatabase(itemArray, totalAmount, totalPrice);
+            createVisualCart(itemArray, totalPrice);
+            cartRemoveButton(itemArray);
+            cartIncrement(itemArray);
+
+        })
+
+    }
 
     //Buttons in list of items
     function cartRemoveButton(itemArray) {
@@ -251,7 +291,6 @@ if (document.URL === "http://localhost:3000/cart") {
 
                     //Remove all items from the cart (recreate after)
                     document.getElementById("cartItemBlock").innerHTML = "";
-                    // document.getElementById(`cartItem${item.itemName}`) = "";
 
                     updateCartDatabase(itemArray, totalAmount, totalPrice);
                     createVisualCart(itemArray, totalPrice);
