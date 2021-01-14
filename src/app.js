@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const path = require('path');
 const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
 const LocalStrategy = require("passport-local"); 
 const User = require("./models/user");
 
