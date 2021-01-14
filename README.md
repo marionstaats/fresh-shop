@@ -1,5 +1,5 @@
 # The Fresh-shop
-Check out the app at: ...
+Check out the app at: https://fierce-peak-83405.herokuapp.com/
 
 ## Mission objectives
 In this challenge, I have to implement as many back-end functionalities as possible in OOP. 
@@ -22,13 +22,13 @@ Freshshop already owns the frontend part of the project. You must now implement 
 - Research bar
 - Newsletter (only add the email address to the database)
 - The shopping cart must work (add / remove / calculate / order)
+- Contact Us
 
 ### Nice-to-have features
 
 - All img should be displayed dynamically
 - The shop filters are working (sidebar shop)
 - Wishlist
-- Contact Us
 
 ### Get this app locally
 

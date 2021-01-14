@@ -167,7 +167,7 @@ function updateCartDatabase(itemArray,totalAmount,totalPrice){
 ////////////////////////////////////////
 //Cart
 ///////////////////////////////////////
-if (document.URL === "http://localhost:3000/cart") {
+if (document.URL === "http://localhost:3000/cart" || "https://fierce-peak-83405.herokuapp.com/cart" ) {
 
     fetch('/get-cart', {
         method: 'POST', 
@@ -300,4 +300,8 @@ if (document.URL === "http://localhost:3000/cart") {
     }
 }
 
+////////////////////////////////////////
+//Checkout
+///////////////////////////////////////
 
+//Delivery costs

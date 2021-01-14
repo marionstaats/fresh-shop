@@ -22,12 +22,12 @@ module.exports = function(app) {
                 if(req.isAuthenticated()){
                     const username = req.session.passport.user; //get the username
                     User.findOne({username: username}, (err, data) => {
-                        res.render("checkout", { fName: data.fName, lName: data.lName, email: data.email, street: data.address.street, zipcode: data.address.zipcode, town: data.address.town, arrayOfItems: result.items, totalAmount: totalAmount}); 
+                        res.render("checkout", { fName: data.fName, lName: data.lName, email: data.email, street: data.address.street, zipcode: data.address.zipcode, town: data.address.town, arrayOfItems: result.items, totalPrice: result.totalPrice}); 
                     });
             
                 // Get page with empty fields if not logged in    
                 } else {
-                    res.render("checkout", { fName: '', lName: '', email: '', street: '', zipcode: '', town: '', arrayOfItems: result.items, totalAmount: totalAmount});
+                    res.render("checkout", { fName: '', lName: '', email: '', street: '', zipcode: '', town: '', arrayOfItems: result.items, totalPrice: result.totalPrice});
                 }
 
                 
@@ -46,8 +46,7 @@ module.exports = function(app) {
     }), function (req, res) { 
         }
     ); 
-        
-
+    
 
 }
 

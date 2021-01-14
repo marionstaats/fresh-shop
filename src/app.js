@@ -43,13 +43,15 @@ app.use(express.static(publicDirectory));
 //View engine config
 app.set("view engine", "ejs");
 
-//Set session
-app.use(session({
+let sess = {
     secret: 'rollo the fat',
     resave: false,
     saveUninitialized: true,
     cookie: {}
-}))
+}
+
+//Set session
+app.use(session(sess))
 
 //In production set 'cookies secure = true' 
 if (app.get('env') === 'production') {
