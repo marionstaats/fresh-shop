@@ -37,3 +37,4 @@ Freshshop already owns the frontend part of the project. You must now implement 
 3. Create MongoDB database
 4. Create .env file with DB_CONNECT = <connection to Mongodb> for example: mongodb+srv://<USERNAME>:<DBPASSWORD>@cluster0.yb2wo.mongodb.net/<DBNAME>?retryWrites=true&w=majority
 5. Check package.json for scripts to use
+6. Create productdb

@@ -106,7 +106,7 @@
                         <div class="title-left">
                             <h3>Billing address</h3>
                         </div>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" name="checkoutForm" novalidate>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="firstName">First name *</label>
@@ -214,15 +214,15 @@
                                 </div>
                                 <div class="mb-4">
                                     <div class="custom-control custom-radio">
-                                        <input id="shippingOption1" name="shipping-option" class="custom-control-input" checked="checked" type="radio">
+                                        <input id="shippingOption1" name="shipping-option" value="0" class="custom-control-input" checked="checked" type="radio">
                                         <label class="custom-control-label" for="shippingOption1">Standard Delivery</label> <span class="float-right font-weight-bold">FREE</span> </div>
                                     <div class="ml-4 mb-2 small">(3-7 business days)</div>
                                     <div class="custom-control custom-radio">
-                                        <input id="shippingOption2" name="shipping-option" class="custom-control-input" type="radio">
+                                        <input id="shippingOption2" name="shipping-option" value="10" class="custom-control-input" type="radio">
                                         <label class="custom-control-label" for="shippingOption2">Express Delivery</label> <span class="float-right font-weight-bold">$10.00</span> </div>
                                     <div class="ml-4 mb-2 small">(2-4 business days)</div>
                                     <div class="custom-control custom-radio">
-                                        <input id="shippingOption3" name="shipping-option" class="custom-control-input" type="radio">
+                                        <input id="shippingOption3" name="shipping-option" value="20" class="custom-control-input" type="radio">
                                         <label class="custom-control-label" for="shippingOption3">Next Business day</label> <span class="float-right font-weight-bold">$20.00</span> </div>
                                 </div>
                             </div>
@@ -273,12 +273,12 @@
                                 </div>
                                 <div class="d-flex">
                                     <h4>Shipping Cost</h4>
-                                    <div class="ml-auto font-weight-bold"> Free </div>
+                                    <div class="ml-auto font-weight-bold" id="shippingcost"> Free </div>
                                 </div>
                                 <hr>
                                 <div class="d-flex gr-total">
                                     <h5>Grand Total</h5>
-                                    <div class="ml-auto h5"> $ <%= totalPrice%> </div>
+                                    <div class="ml-auto h5" id="cartTotal"> $ <%= totalPrice%> </div>
                                 </div>
                                 <hr> </div>
                         </div>

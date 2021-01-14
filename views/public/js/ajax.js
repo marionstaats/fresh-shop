@@ -207,7 +207,7 @@ if (document.URL === "http://localhost:3000/cart" || "https://fierce-peak-83405.
             <td class="price-pr">
                 <p>$ ${((item.subTotal)/(item.itemAmount)).toFixed(2)}</p>
             </td>
-            <td class="quantity-box"><input type="number" size="4" value="${item.itemAmount}" min="0" step="1" id="${item.itemName}" class="cartIncrement" c-input-text qty text"></td>
+            <td class="quantity-box"><input type="number" size="4" value="${item.itemAmount}" min="1" step="1" id="${item.itemName}" class="cartIncrement" c-input-text qty text"></td>
             <td class="total-pr">
                 <p>$ ${(item.subTotal).toFixed(2)}</p>
             </td>
@@ -258,6 +258,7 @@ if (document.URL === "http://localhost:3000/cart" || "https://fierce-peak-83405.
             createVisualCart(itemArray, totalPrice);
             cartRemoveButton(itemArray);
             cartIncrement(itemArray);
+            createVisual (itemArray, totalAmount, totalPrice)
 
         })
 
@@ -295,9 +296,17 @@ if (document.URL === "http://localhost:3000/cart" || "https://fierce-peak-83405.
                     updateCartDatabase(itemArray, totalAmount, totalPrice);
                     createVisualCart(itemArray, totalPrice);
                     cartRemoveButton(itemArray)
+                    createVisual (itemArray, totalAmount, totalPrice)
                 })
         })
     }
+
+    //Wishlist buttons
+    document.querySelectorAll(".fa-heart").forEach((button) => {
+        
+    })
+
+
 }
 
 ////////////////////////////////////////
@@ -305,3 +314,21 @@ if (document.URL === "http://localhost:3000/cart" || "https://fierce-peak-83405.
 ///////////////////////////////////////
 
 //Delivery costs
+
+if (document.URL === "http://localhost:3000/checkout" || "https://fierce-peak-83405.herokuapp.com/checkout" ) {
+
+
+    let deliverRadio = document.querySelectorAll(".custom-control-input");
+    let prev = null;
+    for (var i = 0; i < deliverRadio.length; i++) {
+        deliverRadio[i].addEventListener('change', function() {
+            (prev) ? console.log(prev.value): null;
+            if (this !== prev) {
+                prev = this;
+            }
+            document.getElementById("shippingcost").innerHTML = `$ ${this.value}`;
+            document.getElementById("cartTotal").innerHTML = `$ ${Number((totalPrice.toFixed(2)))+Number(this.value)}`;
+
+        });
+    }
+}
