@@ -2,7 +2,7 @@
 Check out the app at: https://fierce-peak-83405.herokuapp.com/
 
 ## Mission objectives
-In this challenge, I have to implement as many back-end functionalities as possible in OOP. 
+In this challenge, I have to implement as many (back-end) functionalities as possible. 
 
 ## Description
 Freshshop is your new customer. They specialize in organic food and biodegradable bikes. Their store in Saint-Gilles is so profitable that they've opened another just below Thomas's apartment. To celebrate, they want to launch an e-commerce website at the same time.
